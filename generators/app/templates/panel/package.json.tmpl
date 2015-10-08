@@ -1,0 +1,30 @@
+{
+  "name": "<%= packageName %>",
+  "version": "0.0.0",
+  "description": "An editor-framework app.",
+  "author": "",
+  "hosts": {
+    "editor-framework": "^0.3.16"
+  },
+  "dependencies": {
+  },
+  "main": "main.js",
+  "menus": {
+    "Panels/<%= packageName %>.<%= panelName %>": {
+      "message": "<%= packageName %>:open"
+    }
+  },
+  "panels": {
+    "<%= panelName %>": {
+      "frame": "panel/panel.html",
+      "type": "dockable",
+      "title": "<%= packageName %>",
+      "width": 200,
+      "height": 200,
+      "min-width": 200,
+      "min-height": 200,
+      "shortcuts": {},
+      "messages": []
+    }
+  }
+}
