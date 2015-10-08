@@ -89,7 +89,7 @@ module.exports = Yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.template('main.js.tmpl', 'main.js', this.templateData);
+      this.template('main.tmpl.js', 'main.js', this.templateData);
     },
 
     panel: function () {
@@ -97,10 +97,10 @@ module.exports = Yeoman.generators.Base.extend({
         return;
       }
 
-      this.template('panel/package.json.tmpl', 'package.json', this.templateData);
+      this.template('panel/package.tmpl.json', 'package.json', this.templateData);
       this.copy('panel/panel.css', 'panel/panel.css');
-      this.template('panel/panel.html.tmpl', 'panel/panel.html', this.templateData);
-      this.template('panel/panel.js.tmpl', 'panel/panel.js', this.templateData);
+      this.template('panel/panel.tmpl.html', 'panel/panel.html', this.templateData);
+      this.template('panel/panel.tmpl.js', 'panel/panel.js', this.templateData);
     },
 
     widget: function () {
@@ -108,10 +108,10 @@ module.exports = Yeoman.generators.Base.extend({
         return;
       }
 
-      this.template('widget/package.json.tmpl', 'package.json', this.templateData);
+      this.template('widget/package.tmpl.json', 'package.json', this.templateData);
       this.copy('widget/widget.css', 'widget/' + this.templateData.widgetName + '.css');
-      this.template('widget/widget.html.tmpl', 'widget/' + this.templateData.widgetName + '.html', this.templateData);
-      this.template('widget/widget.js.tmpl', 'widget/' + this.templateData.widgetName + '.js', this.templateData);
+      this.template('widget/widget.tmpl.html', 'widget/' + this.templateData.widgetName + '.html', this.templateData);
+      this.template('widget/widget.tmpl.js', 'widget/' + this.templateData.widgetName + '.js', this.templateData);
     },
 
     core: function () {
@@ -119,7 +119,7 @@ module.exports = Yeoman.generators.Base.extend({
         return;
       }
 
-      this.template('core/package.json.tmpl', 'package.json', this.templateData);
+      this.template('core/package.tmpl.json', 'package.json', this.templateData);
     },
 
     config: function () {
@@ -130,7 +130,7 @@ module.exports = Yeoman.generators.Base.extend({
 
     misc: function () {
       this.copy('misc/LICENSE.md', 'LICENSE.md');
-      this.template('misc/README.md.tmpl', 'README.md', this.templateData);
+      this.template('misc/README.tmpl.md', 'README.md', this.templateData);
     },
   },
 
