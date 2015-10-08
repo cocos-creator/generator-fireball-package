@@ -6,6 +6,13 @@ var _ = require('lodash');
 module.exports = Yeoman.generators.Base.extend({
   constructor: function () {
     Yeoman.generators.Base.apply(this,arguments);
+
+    this.config.defaults({
+      packageName: _.kebabCase(this.appname),
+      packageType: 'panel',
+      panelName: 'panel',
+      widgetName: 'simple-widget',
+    });
   },
 
   prompting: {
@@ -24,7 +31,7 @@ module.exports = Yeoman.generators.Base.extend({
         type: 'input',
         name: 'packageName',
         message: 'Your package name',
-        default: this.appname,
+        default: this.config.get('packageName'),
       });
 
       // package type
@@ -32,7 +39,7 @@ module.exports = Yeoman.generators.Base.extend({
         type: 'list',
         name: 'packageType',
         message: 'Choose your package type',
-        default: 'panel',
+        default: this.config.get('packageType'),
         choices: [
           'panel',
           'widget',
@@ -43,8 +50,11 @@ module.exports = Yeoman.generators.Base.extend({
       });
 
       this.prompt(prompts, function (answers) {
-        this.packageName = answers.packageName;
-        this.packageType = answers.packageType;
+        this.packageName = _.kebabCase(answers.packageName);
+        this.packageType = _.kebabCase(answers.packageType);
+
+        this.config.set( 'packageName', this.packageName );
+        this.config.set( 'packageType', this.packageType );
 
         done();
       }.bind(this));
@@ -59,14 +69,14 @@ module.exports = Yeoman.generators.Base.extend({
           type: 'input',
           name: 'panelName',
           message: 'Your panel name',
-          default: 'panel',
+          default: this.config.get('panelName'),
         });
       } else if ( this.packageType === 'widget' ) {
         prompts.push({
           type: 'input',
           name: 'widgetName',
           message: 'Your widget name',
-          default: 'simple-widget',
+          default: this.config.get('widgetName'),
         });
       }
 
@@ -75,8 +85,10 @@ module.exports = Yeoman.generators.Base.extend({
 
         if ( this.packageType === 'panel' ) {
           this.templateData.panelName = _.kebabCase(answers.panelName);
+          this.config.set( 'panelName', this.templateData.panelName );
         } else if ( this.packageType === 'widget' ) {
           this.templateData.widgetName = _.kebabCase(answers.widgetName);
+          this.config.set( 'widgetName', this.templateData.widgetName );
         }
 
         this.templateData.packageName = this.packageName;
