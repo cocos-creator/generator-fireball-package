@@ -1,3 +1,8 @@
 :host {
   @apply(--layout-vertical);
+  @apply(--layout-center-center);
+}
+
+h1 {
+  color: #666;
 }
