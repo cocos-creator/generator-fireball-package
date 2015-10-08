@@ -9,7 +9,7 @@ describe('editor-framework:app', function () {
   // panel
   // ===============
 
-  describe('pacakge-type = panel', function () {
+  describe('package-type = panel', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withPrompts({
@@ -51,7 +51,7 @@ describe('editor-framework:app', function () {
   // widget
   // ===============
 
-  describe('pacakge-type = widget', function () {
+  describe('package-type = widget', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withPrompts({
@@ -91,7 +91,7 @@ describe('editor-framework:app', function () {
   // core
   // ===============
 
-  describe('pacakge-type = core', function () {
+  describe('package-type = core', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
         .withPrompts({
