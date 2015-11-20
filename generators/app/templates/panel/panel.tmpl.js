@@ -18,6 +18,6 @@ Editor.registerPanel( '<%= packageName %>.<%= panelName %>', {
     // 'foobar': '_onFoobar',
   },
 
-  ready: function () {
+  ready () {
   },
 });

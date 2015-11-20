@@ -18,6 +18,6 @@ Editor.registerElement({
     // 'foobar': '_onFoobar',
   },
 
-  ready: function () {
+  ready () {
   },
 });

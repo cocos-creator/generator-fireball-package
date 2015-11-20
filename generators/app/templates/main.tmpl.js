@@ -1,13 +1,15 @@
+'use strict';
+
 module.exports = {
-  load: function () {
+  load () {
   },
 
-  unload: function () {
+  unload () {
   },
 
   <% if (packageType === 'panel') { %>
-    '<%= packageName %>:open': function () {
-      Editor.Panel.open('<%= packageName %>.<%= panelName %>');
-    },
+  '<%= packageName %>:open' () {
+    Editor.Panel.open('<%= packageName %>.<%= panelName %>');
+  },
   <% } %>
 };
